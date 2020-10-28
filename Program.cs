@@ -32,7 +32,7 @@ namespace fantasy_statistics
         private static StringBuilder ReadData(Response data)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Team,Position,Name,MinutesPlayed,Form,Cost,TotalPoints,PointsPerCost");
+            sb.AppendLine("Team,Position,Name,MinutesPlayed,Form,TotalPoints,Price,PointsPerCost,Bonus,GoalsScored,Assists,GoalsConceded,CleanSheets,Saves,PenaltiesSaved,PointsPerGame,PenaltiesOrder,PenaltiesMissed,YellowCards,RedCards");
 
             int length = data.Players.Length;
             for (int i = 0; i < length; i++)
@@ -42,9 +42,21 @@ namespace fantasy_statistics
                 sb.Append($",{data.Players[i].FirstName} {data.Players[i].SecondName}");
                 sb.Append($",{data.Players[i].MinutesPlayed}");
                 sb.Append($",{data.Players[i].Form}");
-                sb.Append($",{data.Players[i].NowCost/10}");
                 sb.Append($",{data.Players[i].TotalPoints}");
-                sb.AppendLine($",{data.Players[i].TotalPoints/(data.Players[i].NowCost/10)}");
+                sb.Append($",{data.Players[i].NowCost/10}");
+                sb.Append($",{data.Players[i].TotalPoints/(data.Players[i].NowCost/10):0.00}");
+                sb.Append($",{data.Players[i].Bonus}");
+                sb.Append($",{data.Players[i].GoalsScored}");
+                sb.Append($",{data.Players[i].Assists}");
+                sb.Append($",{data.Players[i].GoalsConceded}");
+                sb.Append($",{data.Players[i].CleanSheets}");
+                sb.Append($",{data.Players[i].Saves}");
+                sb.Append($",{data.Players[i].PenaltiesSaved}");
+                sb.Append($",{data.Players[i].PointsPerGame}");
+                sb.Append($",{data.Players[i].PenaltiesOrder}");
+                sb.Append($",{data.Players[i].PenaltiesMissed}");
+                sb.Append($",{data.Players[i].YellowCards}");
+                sb.AppendLine($",{data.Players[i].RedCards}");
             }
 
             return sb;
