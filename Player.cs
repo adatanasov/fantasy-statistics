@@ -117,7 +117,7 @@ namespace fantasy_statistics
         public string News { get; set; }
 
         [JsonProperty("news_added")]
-        public DateTime NewsAdded { get; set; }
+        public DateTime? NewsAdded { get; set; }
 
         [JsonProperty("now_cost")]
         public decimal? NowCost { get; set; }
